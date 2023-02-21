@@ -1,13 +1,8 @@
-
-
-
-const CartWidget = () => {
-
+import carrito from "./carrito.png"
+export const CartWidget = () => {
     return (
-        <div>
-            {/* <img src={iconCarrito}/> */}
+        <div className="container">
+            <img src={carrito} alt=""/>
         </div>
     )
 }
-
-export default CartWidget

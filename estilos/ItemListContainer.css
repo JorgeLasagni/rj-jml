@@ -1,4 +1,11 @@
 .contenedor {
   margin: 40px auto;
   max-width: 900px;
+  border: double;
+  font-size: 15px;
+  font-weight: 350;
+  text-decoration: none;
+}
+.contenedor .contenedor_titulo {
+  font-size: 15px;
 }/*# sourceMappingURL=ItemListContainer.css.map */
