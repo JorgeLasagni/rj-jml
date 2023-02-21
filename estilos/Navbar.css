@@ -1,0 +1,26 @@
+.header {
+  background-color: rgba(103, 101, 228, 0.774);
+}
+.header .header__container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .header__container .header__logo {
+  max-width: 100px;
+}
+.header .header__container .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.header .header__container .navbar .navbar__link {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}/*# sourceMappingURL=Navbar.css.map */
