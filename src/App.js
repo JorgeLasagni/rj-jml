@@ -11,8 +11,7 @@ function App() {
       <ItemListContainer />
 
       <div className="container">
-        {/*<button className="btn btn-primary"> Haceme un click!!!</button>*/}
-        <Button variant="danger" size="small"> Haceme  CLICK!</Button>
+        <Button variant="danger" size="sm"> Haceme  CLICK!</Button>
       </div>
 
     </div>
