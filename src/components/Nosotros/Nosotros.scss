@@ -1,0 +1,16 @@
+.contenedor {
+    margin: 1px auto;
+    //max-width: 900px;
+    width: 80%;
+    border: double;
+    font-size: 15px;
+    font-weight: 350;
+    text-decoration: none;
+    background-color: rgb(204, 180, 227);
+    //background-color: rgb(170, 236, 226);
+    color: blue;
+    .contenedor_titulo {
+        font-size: 15px;
+        text-align: center;
+    }
+}

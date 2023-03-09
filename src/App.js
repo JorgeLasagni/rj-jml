@@ -4,6 +4,7 @@ import { ItemDetailContainer }  from "./components/ItemDetailContainer/ItemDetai
 import { Nosotros }             from "./components/Nosotros/Nosotros";
 import { Noticias }             from "./components/Noticias/Noticias";
 import { Contacto }             from "./components/Contacto/Contacto";
+import { Carrito }              from "./components/Carrito/Carrito";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Nosotros"               element= { <Nosotros            /> } />
           <Route path="/Noticias"               element= { <Noticias            /> } />
           <Route path="/Contacto"               element= { <Contacto            /> } />
+          <Route path="/Carrito"                element= { <Carrito             /> } />
           <Route path="*"                       element= { <Navigate to="/"     /> } />
         </Routes>
 

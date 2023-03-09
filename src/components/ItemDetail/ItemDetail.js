@@ -8,19 +8,18 @@ export const ItemDetail = ({item}) => {
         navigate(-1)
     }
     const onAdd = (loQueAgrego) => {
-        alert(`Agregaste ${loQueAgrego} productos`);
+        alert(`Hola!!! agregaste ${loQueAgrego} unidades de ` + item.nombre);
     };
     
     return (
-        <div className="container my-5">
+        <div className="container col-3 my-5">
             <h2>{item.nombre}</h2>
             <img src={item.img500} alt={item.nombre} />
             <p>{item.descripcion}   ({item.categoria})</p>
             <p>Precio: ${item.precio} (Stock: {item.stock} unidades) </p>
-
             <ItemCount onAdd={onAdd} initial={1} stock={item.stock} />
-
-            <button onClick={handleVolver} className="btn btn-primary">Volver</button>
+            <hr />
+            <button onClick={handleVolver} className="btn btn-primary">Volver</button>            
         </div>
     )
 }
