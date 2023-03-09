@@ -1,54 +1,31 @@
-import { Navbar }           from "./components/Navbar/Navbar";
-import {ItemListContainer}  from "./components/ItemListContainer/ItemListContainer";
-import { CartWidget }       from "./components/CartWidget/CartWidget";
-import { Contador }         from "./components/Contador/Contador";
-import {ItemCount }         from "./components/ItemCount/ItemCount";
+import { Navbar }               from "./components/Navbar/Navbar";
+import { ItemListContainer }    from "./components/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer }  from "./components/ItemDetailContainer/ItemDetailContainer";
+import { Nosotros }             from "./components/Nosotros/Nosotros";
+import { Noticias }             from "./components/Noticias/Noticias";
+import { Contacto }             from "./components/Contacto/Contacto";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button }           from 'react-bootstrap';
-import { useState } from "react";
-import chapita              from "./components/ItemListContainer/chapita.jpg"
+
 function App() {
 
-  const [show, setShow] = useState(false)
-  const handleShow = () => {
-    setShow(!show)
-  }
-
-  const [showSumador, setShowSumador] = useState(false)
-  const handleShowSumador = () => {
-    setShowSumador(!showSumador)
-  }
-
   return (
-    <div>
+    <BrowserRouter>
 
-      <Navbar />
-      {/* ------------------------------------------------------------- */}
+        <Navbar   />
 
-      <ItemListContainer />
-      {/* ------------------------------------------------------------- */}  
-      
-      <Button onClick={handleShow} className="btn btn-danger"> {show ? "Ocultar " : "Mostrar "}   Contadores 
-      </Button>
-      <br />
-      { show ? <Contador /> : null }
-      <br />
-      {/* ------------------------------------------------------------- */}
+        <Routes>
+          <Route path="/"                       element= { <ItemListContainer   /> } />
+          <Route path="/productos"              element= { <ItemListContainer   /> } />
+          <Route path="/productos/:categoriaId" element= { <ItemListContainer   /> } />
+          <Route path="/detail/:itemId"         element= { <ItemDetailContainer /> } />
+          <Route path="/Nosotros"               element= { <Nosotros            /> } />
+          <Route path="/Noticias"               element= { <Noticias            /> } />
+          <Route path="/Contacto"               element= { <Contacto            /> } />
+          <Route path="*"                       element= { <Navigate to="/"     /> } />
+        </Routes>
 
-      <Button onClick={handleShowSumador} className="btn btn-secundary"> {showSumador ? "Ocultar " : "Mostrar "} 
-      Sumador 
-      </Button>
-      <br />
-      { showSumador ? <ItemCount stock={10} articulo="Chapita de Identificación Canina" imagen={chapita} /> : null}
-      <br />
-      {/* ------------------------------------------------------------- */}
-
-      <div className="container">
-        <Button variant="danger" size="sm"> <CartWidget /> </Button>
-      </div>
-      {/* ------------------------------------------------------------- */}
-
-    </div>
+    </BrowserRouter>
   );
 }
 export default App;

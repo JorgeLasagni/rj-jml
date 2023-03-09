@@ -1,0 +1,152 @@
+[
+    {
+    "id": 1,
+    "nombre": "Agenda",
+    "descripcion": "Descripción del producto 1",
+    "precio": 1000,
+    "stock": 101,
+    "categoria": "Personalizado",
+    "img125": "/imagenes125/agenda-125x125.jpg",
+    "img500": "/imagenes500/agenda-500x500.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Anotador",
+        "descripcion": "Descripción del producto 2",
+        "precio": 2000,
+        "stock": 102,
+        "categoria": "Personalizado",
+        "img125": "/imagenes125/anotador-125x125.jpg",
+        "img500": "/imagenes500/anotador-500x500.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Bolsa",
+        "descripcion": "Descripción del producto 3",
+        "categoria": "Personalizado",
+        "precio": 3000,    
+        "stock": 103,
+        "img125": "/imagenes125/bolsa-125x125.jpg",
+        "img500": "/imagenes500/bolsa-500x500.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Buzo",
+        "descripcion": "Descripción del producto 4",
+        "categoria": "Ropa",
+        "precio": 4000,
+        "stock": 104,
+        "img125": "/imagenes125/buzo-125x125.jpg",
+        "img500": "/imagenes500/buzo-500x500.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Carcasa",
+        "descripcion": "Descripción del producto 5",
+        "categoria": "Accesorio",
+        "precio": 5000,
+        "stock": 105,
+        "img125": "/imagenes125/celu-125x125.jpg",
+        "img500": "/imagenes500/celu-500x500.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Carcasa",
+        "descripcion": "Descripción del producto 6",
+        "precio": 6000,
+        "stock": 106,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/celu2-125x125.jpg",
+        "img500": "/imagenes500/celu2-500x500.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Cuaderno",
+        "descripcion": "Descripción del producto 7",
+        "precio": 7000,
+        "stock": 107,
+        "categoria": "Personalizado",
+        "img125": "/imagenes125/cuaderno-125x125.jpg",
+        "img500": "/imagenes500/cuaderno-500x500.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Cuaderno",
+        "descripcion": "Descripción del producto 8",
+        "precio": 8000,
+        "stock": 108,
+        "categoria": "Personalizado",
+        "img125": "/imagenes125/cuaderno2-125x125.jpg",
+        "img500": "/imagenes500/cuaderno2-500x500.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Cuadro",
+        "descripcion": "Descripción del producto 9",
+        "precio": 9000,
+        "stock": 109,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/cuadro2-125x125.jpg",
+        "img500": "/imagenes500/cuadro2-500x500.jpg"
+    },
+    {
+        "id": 10,
+        "nombre": "Cuadro",
+        "descripcion": "Descripción del producto 10",
+        "precio": 10000,
+        "stock": 110,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/cuadronuevo-125x125.jpg",
+        "img500": "/imagenes500/cuadronuevo-500x500.jpg"
+    },
+    {
+        "id": 11,
+        "nombre": "Fundas",
+        "descripcion": "Descripción del producto 11",
+        "precio": 1100,
+        "stock": 111,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/fundas-125x125.jpg",
+        "img500": "/imagenes500/fundas-500x500.jpg"
+    },
+    {
+        "id": 12,
+        "nombre": "Individuales",
+        "descripcion": "Descripción del producto 12",
+        "precio": 1200,
+        "stock": 112,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/individuales-125x125.jpg",
+        "img500": "/imagenes500/individuales-500x500.jpg"
+    },
+    {
+        "id": 13,
+        "nombre": "PortaBolsas",
+        "descripcion": "Descripción del producto 13",
+        "precio": 1300,
+        "stock": 113,
+        "categoria": "DoggyStyle",
+        "img125": "/imagenes125/portabolsas3-125x125.jpg",
+        "img500": "/imagenes500/portabolsas3-500x500.jpg"
+    },
+    {
+        "id": 14,
+        "nombre": "Individuales",
+        "descripcion": "Descripción del producto 14",
+        "precio": 1400,
+        "stock": 114,
+        "categoria": "Accesorio",
+        "img125": "/imagenes125/individuales1-125x125.jpg",
+        "img500": "/imagenes500/individuales1-500x500.jpg"
+    },
+    {
+        "id": 15,
+        "nombre": "Identificación",
+        "descripcion": "Descripción del producto 15",
+        "precio": 1500,
+        "stock": 5,
+        "categoria": "DoggyStyle",
+        "img125": "/imagenes125/chapita-152x50.jpg",
+        "img500": "/imagenes500/chapita-250x82.jpg"
+    }
+]
