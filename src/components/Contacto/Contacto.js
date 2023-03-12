@@ -2,9 +2,9 @@ export const Contacto = () => {
 
     return (
         <div>
-        <h2> 
+        <h3> 
         Contacto!!
-        </h2>
+        </h3>
         <hr />
         </div>
     )

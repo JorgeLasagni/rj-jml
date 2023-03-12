@@ -10,7 +10,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         .header_logo {
             max-width: 500px;
             margin-top: 1.5px;
@@ -18,26 +17,23 @@
             border-style: double;
             border-color: black;        
         }
-
         .navbar {
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 10px;
-            gap: 100px;
+            gap: 50px;
             list-style-type:none;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             padding-left: 0em;
-
             .navbar_link {
                 color: rgb(145, 13, 13);
                 font-size: 18px;
                 font-weight: 700;
                 text-decoration: none;
                 border: 1.5px;
-
             }
         }
     }

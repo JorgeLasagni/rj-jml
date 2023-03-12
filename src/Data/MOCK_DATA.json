@@ -4,7 +4,7 @@
     "nombre": "Agenda",
     "descripcion": "Descripción del producto 1",
     "precio": 1000,
-    "stock": 101,
+    "stock": 1,
     "categoria": "Personalizado",
     "img125": "/imagenes125/agenda-125x125.jpg",
     "img500": "/imagenes500/agenda-500x500.jpg"
@@ -14,7 +14,7 @@
         "nombre": "Anotador",
         "descripcion": "Descripción del producto 2",
         "precio": 2000,
-        "stock": 102,
+        "stock": 2,
         "categoria": "Personalizado",
         "img125": "/imagenes125/anotador-125x125.jpg",
         "img500": "/imagenes500/anotador-500x500.jpg"
@@ -25,7 +25,7 @@
         "descripcion": "Descripción del producto 3",
         "categoria": "Personalizado",
         "precio": 3000,    
-        "stock": 103,
+        "stock": 3,
         "img125": "/imagenes125/bolsa-125x125.jpg",
         "img500": "/imagenes500/bolsa-500x500.jpg"
     },
@@ -35,7 +35,7 @@
         "descripcion": "Descripción del producto 4",
         "categoria": "Ropa",
         "precio": 4000,
-        "stock": 104,
+        "stock": 4,
         "img125": "/imagenes125/buzo-125x125.jpg",
         "img500": "/imagenes500/buzo-500x500.jpg"
     },
@@ -45,7 +45,7 @@
         "descripcion": "Descripción del producto 5",
         "categoria": "Accesorio",
         "precio": 5000,
-        "stock": 105,
+        "stock": 5,
         "img125": "/imagenes125/celu-125x125.jpg",
         "img500": "/imagenes500/celu-500x500.jpg"
     },
@@ -54,7 +54,7 @@
         "nombre": "Carcasa",
         "descripcion": "Descripción del producto 6",
         "precio": 6000,
-        "stock": 106,
+        "stock": 6,
         "categoria": "Accesorio",
         "img125": "/imagenes125/celu2-125x125.jpg",
         "img500": "/imagenes500/celu2-500x500.jpg"
@@ -64,7 +64,7 @@
         "nombre": "Cuaderno",
         "descripcion": "Descripción del producto 7",
         "precio": 7000,
-        "stock": 107,
+        "stock": 7,
         "categoria": "Personalizado",
         "img125": "/imagenes125/cuaderno-125x125.jpg",
         "img500": "/imagenes500/cuaderno-500x500.jpg"
@@ -74,7 +74,7 @@
         "nombre": "Cuaderno",
         "descripcion": "Descripción del producto 8",
         "precio": 8000,
-        "stock": 108,
+        "stock": 8,
         "categoria": "Personalizado",
         "img125": "/imagenes125/cuaderno2-125x125.jpg",
         "img500": "/imagenes500/cuaderno2-500x500.jpg"
@@ -84,7 +84,7 @@
         "nombre": "Cuadro",
         "descripcion": "Descripción del producto 9",
         "precio": 9000,
-        "stock": 109,
+        "stock": 9,
         "categoria": "Accesorio",
         "img125": "/imagenes125/cuadro2-125x125.jpg",
         "img500": "/imagenes500/cuadro2-500x500.jpg"
@@ -94,7 +94,7 @@
         "nombre": "Cuadro",
         "descripcion": "Descripción del producto 10",
         "precio": 10000,
-        "stock": 110,
+        "stock": 1,
         "categoria": "Accesorio",
         "img125": "/imagenes125/cuadronuevo-125x125.jpg",
         "img500": "/imagenes500/cuadronuevo-500x500.jpg"
@@ -104,7 +104,7 @@
         "nombre": "Fundas",
         "descripcion": "Descripción del producto 11",
         "precio": 1100,
-        "stock": 111,
+        "stock": 11,
         "categoria": "Accesorio",
         "img125": "/imagenes125/fundas-125x125.jpg",
         "img500": "/imagenes500/fundas-500x500.jpg"
@@ -114,7 +114,7 @@
         "nombre": "Individuales",
         "descripcion": "Descripción del producto 12",
         "precio": 1200,
-        "stock": 112,
+        "stock": 12,
         "categoria": "Accesorio",
         "img125": "/imagenes125/individuales-125x125.jpg",
         "img500": "/imagenes500/individuales-500x500.jpg"
@@ -124,7 +124,7 @@
         "nombre": "PortaBolsas",
         "descripcion": "Descripción del producto 13",
         "precio": 1300,
-        "stock": 113,
+        "stock": 13,
         "categoria": "DoggyStyle",
         "img125": "/imagenes125/portabolsas3-125x125.jpg",
         "img500": "/imagenes500/portabolsas3-500x500.jpg"
@@ -134,7 +134,7 @@
         "nombre": "Individuales",
         "descripcion": "Descripción del producto 14",
         "precio": 1400,
-        "stock": 114,
+        "stock": 0,
         "categoria": "Accesorio",
         "img125": "/imagenes125/individuales1-125x125.jpg",
         "img500": "/imagenes500/individuales1-500x500.jpg"

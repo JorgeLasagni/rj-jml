@@ -1,0 +1,14 @@
+.contenedor {
+  margin: 1px auto;
+  width: 99%;
+  border: double;
+  font-size: 15px;
+  font-weight: 350;
+  text-decoration: none;
+  background-color: rgb(204, 180, 227);
+  color: blue;
+}
+.contenedor .contenedor_titulo {
+  font-size: 15px;
+  text-align: center;
+}/*# sourceMappingURL=Nosotros.css.map */

@@ -12,9 +12,7 @@ function App() {
 
   return (
     <BrowserRouter>
-
         <Navbar   />
-
         <Routes>
           <Route path="/"                       element= { <ItemListContainer   /> } />
           <Route path="/productos"              element= { <ItemListContainer   /> } />
@@ -26,7 +24,6 @@ function App() {
           <Route path="/Carrito"                element= { <Carrito             /> } />
           <Route path="*"                       element= { <Navigate to="/"     /> } />
         </Routes>
-
     </BrowserRouter>
   );
 }
