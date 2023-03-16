@@ -7,7 +7,13 @@ export const ItemDetail = ({item}) => {
         navigate(-1)
     }
     const onAdd = (loQueAgrego) => {
+        //alert(`Hola!!! agregaste ${loQueAgrego} unidades de ` + item.nombre);
+        const newItem = {
+            ...item,
+            loQueAgrego
+        }
         alert(`Hola!!! agregaste ${loQueAgrego} unidades de ` + item.nombre);
+        console.log({newItem})
     };
 
     return (
