@@ -1,10 +1,7 @@
-import { useContext }   from "react"
-import { Item }         from "../Item/Item"
-import { MyContext }    from "../Context/MyContext"
+import { Item } from "../Item/Item"
 
 export const ItemList = ( {items}  ) => {
-    const {tutor} = useContext(MyContext)
-    console.log(tutor)
+
     return (
         <div className="container justify-content-center">
             <hr />            

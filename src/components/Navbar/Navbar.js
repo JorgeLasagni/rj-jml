@@ -14,7 +14,7 @@ export const Navbar = () => {
             <Link to="/Productos/DoggyStyle"    className="navbar_link"> DoggyStyle     </Link>
             <Link to="/Productos/Ropa"          className="navbar_link"> Ropa           </Link>
             <Link to="/Productos/Personalizado" className="navbar_link"> Personalizado  </Link>
-            <Link to="/Carrito"                 className="navbar_link"> <CartWidget /> </Link>
+            <CartWidget />
           </nav>
         </div>
         <hr />

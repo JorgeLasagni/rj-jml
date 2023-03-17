@@ -1,9 +1,19 @@
-import carrito from "./carrito.png" 
+import { useContext }       from "react"
+import { FaShoppingCart }   from "react-icons/fa"
+import { Link }             from "react-router-dom"
+import { CartContext }      from "../../context/CartContext"
 export const CartWidget = () => {
+    const { totalCantidad } = useContext(CartContext)
 
     return (
-        <div>
-            <img src={carrito} alt="carrito"/>
-        </div>
+        
+        <Link   to="/Cart" 
+                style={{
+                    fontSize: "26px",
+                    color: "white"
+                }}>
+            <FaShoppingCart />
+            <span> {totalCantidad()} </span>
+        </Link>
     )
 }
