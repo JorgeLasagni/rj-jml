@@ -30,14 +30,24 @@ export const ItemListContainer = () => {
             })  
         }, [categoriaId] )
 
+        // Early Return...
+        // if (loading) {
+        //     return (
+        //         <div className="container">
+        //             <h5>Categoría: {categoriaId} ... Cargando ...</h5>
+        //         </div>
+        //     )
+        // }
+
         return (
             <div className="container">
-                <h5>Categoría: {categoriaId}</h5>
+                
                 {
                     loading
-                    ? <h4>Cargando ... {categoriaId}</h4>
-                    :
-                    <ItemList items={productos}/>
+                        ?  <h5>Categoría: {categoriaId} ... Cargando ...</h5>
+                        :
+                        <div> <h5>Categoría: {categoriaId}</h5>
+                        <ItemList items={productos}/> </div>
                 }
             </div>
         )

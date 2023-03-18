@@ -2,6 +2,8 @@ import { Link, useNavigate }    from "react-router-dom"
 import { useContext, useState } from "react"
 import { ItemCount }            from "./../ItemCount/ItemCount"
 import { CartContext }          from "../../context/CartContext"
+import { LowStockMsg}           from "./../LowStockMsg/LowStockMsg"
+
 export const ItemDetail = ({item}) => {
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
         
@@ -25,7 +27,10 @@ export const ItemDetail = ({item}) => {
             <h2>{item.nombre}</h2>
             <img src={item.img125} alt={item.nombre} />
             <p>{item.descripcion}   ({item.categoria})</p>
-            <p>Precio: ${item.precio} (Stock: {item.stock})</p>
+            <p>Precio: ${item.precio} </p>
+            
+            {item.stock  >  5 && <p>Stock disponible: {item.stock} unidades</p>}
+            {item.stock  <= 5 && <LowStockMsg stock={item.stock} />}
 
             {
                 isInCart(item.id)
