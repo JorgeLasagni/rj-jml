@@ -10,9 +10,9 @@ export const ItemCount = ({max, cantidad, setCantidad, handleAgregar}) => {
     return (
         <div className="my-3">
             <button
-                onClick     ={handleRestar}
-                className   ={`btn  boton ${cantidad===1 ? "btn-outline-danger" : "btn-outline-primary" }`}
-                disabled    ={cantidad === 1}
+                onClick     = {handleRestar}
+                className   = {`btn  ${cantidad===1 ? "btn-outline-danger" : "btn-outline-primary" }`}
+                disabled    = {cantidad === 1}
             >
                 -
             </button>
@@ -20,9 +20,9 @@ export const ItemCount = ({max, cantidad, setCantidad, handleAgregar}) => {
             <span className="mx-2">{cantidad}</span>
 
             <button 
-                onClick     ={handleSumar} 
-                className   ={`btn boton ${cantidad===max ? "btn-outline-danger" : "btn-outline-primary" }`}
-                disabled    ={cantidad === max}
+                onClick     = {handleSumar} 
+                className   = {`btn ${cantidad===max ? "btn-outline-danger" : "btn-outline-primary" }`}
+                disabled    = {cantidad === max}
             >
                 +
             </button>

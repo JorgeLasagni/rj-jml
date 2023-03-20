@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(100, 114, 237);
+  background-color: rgb(137, 146, 223);
   width: 100%;
 }
 .header .header_container {
@@ -35,4 +35,11 @@
   font-weight: 700;
   text-decoration: none;
   border: 1.5px;
+}
+.header .login-state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
 }/*# sourceMappingURL=Navbar.css.map */
