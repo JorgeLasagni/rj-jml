@@ -1,8 +1,9 @@
 import "../ItemListContainer/ItemListContainer.scss"
 import { useEffect, useState }  from "react"
-import { pedirDatos }           from "../../helpers/pedirDatos"
 import { ItemList}              from "./../ItemList/ItemList"
 import { useParams }            from "react-router-dom"
+import { collection, getDocs, query, where, limit } from "firebase/firestore"
+import { db }                   from "../../firebase/config"
 
 export const ItemListContainer = () => {
 
@@ -14,36 +15,31 @@ export const ItemListContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        pedirDatos()
-            .then( (response) => {
-                if (!categoriaId) {
-                    setProductos( response )
-                } else {
-                    setProductos( response.filter((prod) => prod.categoria === categoriaId) )
-                }
-            })
-            .catch( (reject) => {
-                console.log(reject)
-            })
-            .finally( () => {
-                setLoading(false)
-            })  
-        }, [categoriaId] )
 
-        // Early Return...
-        // if (loading) {
-        //     return (
-        //         <div className="container">
-        //             <h5>Categoría: {categoriaId} ... Cargando ...</h5>
-        //         </div>
-        //     )
-        // }
+        //1- referencia (sincrónico) qué basede datos quiero y cuál coleción de ella?
+        const productosRef = collection(db, "productos")
+        const q = categoriaId 
+                    ? query(productosRef, where("categoria", "==", categoriaId), limit(100))
+                    //? query(productosRef, where("categoria", "==", categoriaId), where("precio", "<", 5000))
+                    : productosRef
+
+        //2- pedir referencia (asincrónico) cuáles documentos?
+        getDocs(q)
+            .then((res) => {
+                const docs = res.docs.map((doc) => {
+                    return {...doc.data(),id: doc.id}
+                })
+                setProductos(docs)
+            })
+            .finally(() => {
+                setLoading(false)
+                })   
+        }, [categoriaId] )
 
         return (
             <div className="container">
                 
-                {
-                    loading
+                {   loading
                         ?  <h5>Categoría: {categoriaId} ... Cargando ...</h5>
                         :
                         <div> <h5>Categoría: {categoriaId}</h5>

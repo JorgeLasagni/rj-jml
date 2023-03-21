@@ -29,7 +29,7 @@ export const Navbar = () => {
           </nav>      
         </div>
         <div className="login-state container">
-          <p>Bienvenido: {user.email} Ingreso: {fechaIngreso}</p>
+          <p>Bienvenido: {user.email} (Ingreso: {fechaIngreso})</p>
           <button className="btn btn-danger sm" onClick={logout}>Logout</button>
         </div>
         <hr />
