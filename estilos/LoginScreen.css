@@ -7,8 +7,17 @@
   height: 100vh;
 }
 .login-screen .login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 500px;
   padding: 26px;
   border-radius: 10px;
   background-color: white;
+}
+.login-screen .password-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }/*# sourceMappingURL=LoginScreen.css.map */

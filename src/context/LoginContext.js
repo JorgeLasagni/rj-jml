@@ -6,19 +6,22 @@ const MOCK_USERS = [
     {
         id: 1,
         email: "jlasagni@gmail.com",
-        password: "Miramar"
+        password: "Miramar",
+        usuario: "Jorge Mario Lasagni"
     },
     {
         id: 2,
         email: "jml.sistemas.srl@gmail.com",
-        password: "Miramar23y18"
+        password: "Miramar23y18",
+        usuario: "JML Sistemas"
     }
 ]
 export const LoginProvider = ({children}) => {
 
     const [user, setUser] = useState({
         email:null,
-        logged:false
+        logged:false,
+        usuario:null
     })
 
     const tryLogin = (values) => {
@@ -26,15 +29,19 @@ export const LoginProvider = ({children}) => {
         if (match && match.password === values.password) {
             setUser({
                 logged: true,
-                email: match.email
+                email: match.email,
+                usuario: match.usuario
             })
+        } else{
+            alert("Error en Usuario o Contraseña!!!")
         }
     }
 
     const logout = () => {
         setUser({
             email: null,
-            logged: false
+            logged: false,
+            usuario:null
         })
     }
 

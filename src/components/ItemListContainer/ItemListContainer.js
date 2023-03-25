@@ -4,6 +4,10 @@ import { ItemList}              from "./../ItemList/ItemList"
 import { useParams }            from "react-router-dom"
 import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import { db }                   from "../../firebase/config"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Spinner} from "reactstrap"
+//import { RingLoader } from "react-spinners"
+//react-spinners
 
 export const ItemListContainer = () => {
 
@@ -36,14 +40,26 @@ export const ItemListContainer = () => {
                 })   
         }, [categoriaId] )
 
+        if (!categoriaId) {
+            console.log(" ...INDEFINIDA")
+        }
+        
+
         return (
             <div className="container">
-                
                 {   loading
-                        ?  <h5>Categoría: {categoriaId} ... Cargando ...</h5>
+                        ? <div> <Spinner color="danger"/>  </div>
                         :
-                        <div> <h5>Categoría: {categoriaId}</h5>
-                        <ItemList items={productos}/> </div>
+                        <div>
+                            <h5>
+                                {
+                                    (!categoriaId)
+                                    ?   `Todas las Categorías!`
+                                    :   `Categoría: ${categoriaId}`
+                                }
+                            </h5>
+                            <ItemList items={productos}/>
+                        </div>
                 }
             </div>
         )

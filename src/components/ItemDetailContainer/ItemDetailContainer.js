@@ -3,6 +3,8 @@ import { useParams }            from "react-router-dom"
 import { db }                   from "../../firebase/config"
 import { doc, getDoc }          from "firebase/firestore"
 import { ItemDetail }           from "../ItemDetail/ItemDetail"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Spinner} from "reactstrap"
 
 export const ItemDetailContainer = () => {
     
@@ -32,8 +34,7 @@ export const ItemDetailContainer = () => {
         <div>
             {
                 loading
-                ?
-                <h2>Cargando ... </h2>
+                ? <Spinner color="danger" />
                 : <ItemDetail item={item} />
             }            
         </div>

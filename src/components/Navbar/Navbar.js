@@ -1,8 +1,6 @@
 import "./Navbar.scss"
 import Alert                    from 'react-bootstrap/Alert'
 import { Link }                 from "react-router-dom"
-//import { LoginContex }          from "../../context/LoginContext"
-//import { LoginContex }          from "../../context/LoginContext"
 import { LoginContext }         from "../../context/LoginContext"
 import logods                   from "./logods.jpg"
 import { CartWidget }           from "../CartWidget/CartWidget"
@@ -29,13 +27,13 @@ export const Navbar = () => {
           </nav>      
         </div>
         <div className="login-state container">
-          <p>Bienvenido: {user.email} (Ingreso: {fechaIngreso})</p>
+          <p>Bienvenido: {user.usuario} (Ingreso: {fechaIngreso})</p>
           <button className="btn btn-danger sm" onClick={logout}>Logout</button>
         </div>
         <hr />
         <div className="header_container justify-content-center">
           <nav className="navbar">
-            <Link to="/Noticias" className="navbar_link"> Noticias </Link>
+            <Link to="/Noticias" className="navbar_link"> Noticias del U$S </Link>
             <Link to="/Contacto" className="navbar_link"> Contacto </Link>
             <Link to="/Nosotros" className="navbar_link"> 
               <Alert key="primary" variant="primary">

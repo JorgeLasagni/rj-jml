@@ -13,7 +13,8 @@ export const AppRouter = () => {
         {
             user.logged 
             ?   <PrivateRoutes />
-            :   <PublicRoutes />
+            :  
+                <PublicRoutes />
             }
         </BrowserRouter>
     )

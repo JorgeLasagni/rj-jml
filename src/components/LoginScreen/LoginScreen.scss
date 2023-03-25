@@ -7,9 +7,18 @@
     height: 100vh;
 
     .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;    
         width: 500px;
         padding: 26px;
         border-radius: 10px;
         background-color: white;
+    }
+    .password-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 }
