@@ -48,6 +48,7 @@ export const Cart = () => {
                 Vaciar carrito
                 < MdOutlineRemoveShoppingCart />
             </button>
+            <Link className='btn btn-success' to="/checkout"> Terminar mi compra</Link>
         </div>
     )
 }

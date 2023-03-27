@@ -25,7 +25,7 @@ export const ItemDetail = ({item}) => {
     return (
         <div className="container my-5">
             <h2>{item.nombre}</h2>
-            <img src={item.img125} alt={item.nombre} />
+            <img src={item.img500} alt={item.nombre} />
             <p>{item.descripcion}   ({item.categoria})</p>
             <p>Precio: ${item.precio} </p>
             
@@ -47,31 +47,3 @@ export const ItemDetail = ({item}) => {
         </div>
     )
 }
-
-// export const ItemDetail = ({item}) => {
-    
-//     const navigate = useNavigate()
-//     const handleVolver = () => {
-//         navigate(-1)
-//     }
-//     const onAdd = (loQueAgrego) => {
-//         const newItem = {
-//             ...item,
-//             loQueAgrego
-//         }
-//         alert(`Hola!!! agregaste ${loQueAgrego} unidades de ` + item.nombre);
-//         console.log({newItem})
-//     };
-
-//     return (
-//         <div className="container col-3 ">
-//             <h4>{item.nombre}</h4>
-//             <img src={item.img125} alt={item.nombre} />
-//             <p>{item.descripcion}   ({item.categoria})</p>
-//             <p>Precio: ${item.precio} (Stock: {item.stock} unidades) </p>
-//             <ItemCount onAdd={onAdd} initial={1} stock={item.stock} />
-//             <hr />
-//             <button onClick={handleVolver} className="btn btn-primary">Volver</button>            
-//         </div>
-//     )
-// }

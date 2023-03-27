@@ -1,13 +1,11 @@
 import "../ItemListContainer/ItemListContainer.scss"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState }  from "react"
 import { ItemList}              from "./../ItemList/ItemList"
 import { useParams }            from "react-router-dom"
 import { collection, getDocs, query, where, limit } from "firebase/firestore"
 import { db }                   from "../../firebase/config"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Spinner} from "reactstrap"
-//import { RingLoader } from "react-spinners"
-//react-spinners
+import {Spinner}                from "reactstrap"
 
 export const ItemListContainer = () => {
 
@@ -39,12 +37,7 @@ export const ItemListContainer = () => {
                 setLoading(false)
                 })   
         }, [categoriaId] )
-
-        if (!categoriaId) {
-            console.log(" ...INDEFINIDA")
-        }
         
-
         return (
             <div className="container">
                 {   loading

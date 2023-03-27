@@ -1,4 +1,4 @@
-import "./LoginScreen.scss"
+import "./RegisterScreen.scss"
 import { useContext, useState } from "react"
 import { LoginContext }         from "../../context/LoginContext"
 import { BsEyeSlash, BsEye }    from 'react-icons/bs'
@@ -6,12 +6,11 @@ import logods                   from "./logods.jpg"
 import { Link }                 from "react-router-dom"
 
 
-export const LoginScreen = () => {
-    const { login, googleLogin } = useContext(LoginContext)
 
-    //const { user, tryLogin } = useContext(LoginContext)
-   
-   const [values, setValues] = useState({
+export const RegisterScreen = () => {
+
+    const { user, register } = useContext(LoginContext)
+    const [values, setValues] = useState({
         email: "",
         password: ""
     })
@@ -25,7 +24,8 @@ export const LoginScreen = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        login(values)
+        register(values)
+        alert("Listo el alta???")
     }
 
     const [shown, setShown] = useState(false);
@@ -34,6 +34,7 @@ export const LoginScreen = () => {
     return (
         <div className = "login-screen">
             <div className = "container login">
+                {/* <h2>Regístrese!</h2> */}
                 <img src={logods} alt="DoggyStyle"/>
             
                 <form onSubmit = {handleSubmit}>
@@ -62,16 +63,11 @@ export const LoginScreen = () => {
                         </button>
                     </div>
                     <div  className="container my-2 password-button">
-                        <button className="btn btn-primary" tipe="submit">Ingresar</button>
-                        <Link to="/register">Para Registrarse</Link>
+                        <button className="btn btn-primary" tipe="submit">Nuevo!</button>
+                        <Link to="/login">Para Ingresar</Link>
                     </div>
                 </form>
-                <button className='btn btn-outline-primary'
-                        onClick={googleLogin}>Con Google
-                </button>
-
             </div>
-
         </div>    
     )
 }

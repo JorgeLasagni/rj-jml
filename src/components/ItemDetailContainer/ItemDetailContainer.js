@@ -1,10 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState }  from "react"
 import { useParams }            from "react-router-dom"
 import { db }                   from "../../firebase/config"
 import { doc, getDoc }          from "firebase/firestore"
 import { ItemDetail }           from "../ItemDetail/ItemDetail"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Spinner} from "reactstrap"
+import {Spinner}                from "reactstrap"
 
 export const ItemDetailContainer = () => {
     
@@ -20,8 +20,6 @@ export const ItemDetailContainer = () => {
         // 2.- llamado (asincrónico)
         getDoc(docRef)
             .then((doc) => {
-                console.log(doc.id)
-                console.log(doc.data())
                 setItem({
                     id: doc.id,
                     ...doc.data()
@@ -29,7 +27,6 @@ export const ItemDetailContainer = () => {
             })
             .finally(() => setLoading(false))      
     }, [itemId] )
-    //}, [itemId] )
     return (
         <div>
             {
