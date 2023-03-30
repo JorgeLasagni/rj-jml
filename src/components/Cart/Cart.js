@@ -28,8 +28,8 @@ export const Cart = () => {
             {
                 cart.map((prod) => (
                     <div key={prod.id}>
-                        <h4> {prod.name} </h4>
-                        <img src={prod.img125} alt={prod.name}/>
+                        <h4> {prod.nombre} </h4>
+                        <img src={prod.img125} alt={prod.nombre}/>
                         <p><small>Precio Unitario: ${prod.precio}</small></p>
                         <p><small>Cantidad: {prod.cantidad} </small></p>             
                         <p>Precio Total: ${prod.precio * prod.cantidad} </p>

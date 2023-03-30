@@ -1,10 +1,16 @@
-import { useContext, useState } from "react"
-import { Navigate } from "react-router-dom"
-import { CartContext } from "../../context/CartContext"
+import { useContext, useState }     from "react"
+import { Navigate }                 from "react-router-dom"
+import { Link }                     from "react-router-dom"
+import { CartContext }              from "../../context/CartContext"
+import { db }                       from "../../firebase/config"
+import { collection, addDoc }       from "firebase/firestore"
+import { doc, updateDoc, getDoc }   from "firebase/firestore"
 
 export const Checkout = () => {
 
-    const { cart, totalCompra } = useContext(CartContext)
+    const { cart, totalCompra, vaciarCarrito } = useContext(CartContext)
+
+    const [orderId, setOrderId] = useState(null)
 
     const [values, setValues] = useState({
         nombre: '',
@@ -41,7 +47,44 @@ export const Checkout = () => {
             fecha: new Date()
         }
 
-        console.log("Submit", orden)
+        //console.log("Submit", orden)
+
+        const productosRef = collection(db,'productos')
+        cart.forEach((item) => {
+            const docRef = doc(productosRef, item.id)
+
+            getDoc(docRef)
+                .then((doc) => {
+                    if (doc.data().stock >= item.cantidad) {
+                        updateDoc(docRef, {
+                            stock: item.stock - item.cantidad
+                        })
+                    } else {
+                        alert("no hay stock de " + item.nombre)
+                    }
+                })
+        });
+        const ordenesRef = collection(db, 'ordenes')
+        addDoc(ordenesRef, orden)
+            //.then((doc) => console.log(doc.id))
+            .then((doc) => {
+                setOrderId(doc.id)
+                vaciarCarrito()
+            })  
+            
+            //1.- verificar el stock disponible de toda la compra
+            //2.- si está ok (si hay de todo) actualizo stock y genero la OC
+    }
+
+    if (orderId) {
+        return (
+            <div className="container my-5">
+                <h2>Orden registrada exitosamente</h2>
+                <hr />
+                <p>No olvides tu número de orden: {orderId} </p>
+                <Link className="btn btn-primary my-3" to="/*">Al inicio</Link>
+            </div>
+        )
     }
     // Para no ingresar al Checkout! 
     if (cart.length === 0) {

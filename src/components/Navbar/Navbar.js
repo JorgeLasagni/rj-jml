@@ -17,7 +17,10 @@ export const Navbar = () => {
         <div className="header_container justify-content-center">
         
           <nav className="navbar">
-            <Link to="/"            className="header_logo"> <img src={logods} alt="DoggyStyle"/> </Link>
+            <Link to="/"            
+                  className="header_logo"> 
+                  <img src={logods} alt="DoggyStyle"/> 
+            </Link>
             <Link to="/Productos"               className="navbar_link"> Inicio         </Link>
             <Link to="/Productos/Accesorio"     className="navbar_link"> Accesorios     </Link>
             <Link to="/Productos/DoggyStyle"    className="navbar_link"> DoggyStyle     </Link>

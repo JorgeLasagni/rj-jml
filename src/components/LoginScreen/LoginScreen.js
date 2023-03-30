@@ -66,7 +66,7 @@ export const LoginScreen = () => {
                     </div>
                 </form>
                 <button className='btn btn-outline-primary'
-                        onClick={googleLogin}>Con Google
+                        onClick={googleLogin}>Ingreso con Google
                 </button>
 
             </div>
