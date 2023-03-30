@@ -47,7 +47,7 @@ export const LoginProvider = ({children}) => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log(user)
+                //console.log(user)
                 setUser({
                     email: user.email,
                     logged: true,
