@@ -33,10 +33,8 @@ export const LoginScreen = () => {
 
     return (
         <div className = "login-screen">
-            <h5>Ingrese en DoggyStyle</h5>
             <div className = "container login">
                 <img src={logods} alt="DoggyStyle"/>
-            
                 <form onSubmit = {handleSubmit}>
                     <input 
                         value       =   {values.email}
