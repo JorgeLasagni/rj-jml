@@ -14,7 +14,9 @@ export const RegisterScreen = () => {
         email: "",
         password: ""
     })
-    
+    //para sacar el error
+    console.log(user)
+
     const handleInputChange = (e) => {
         setValues({
             ...values,
