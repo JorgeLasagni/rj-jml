@@ -35,6 +35,7 @@ export const RegisterScreen = () => {
 
     return (
         <div className = "login-screen">
+            <h5>Regístrese en DoggyStyle</h5>
             <div className = "container login">
                 {/* <h2>Regístrese!</h2> */}
                 <img src={logods} alt="DoggyStyle"/>
