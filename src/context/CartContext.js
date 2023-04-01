@@ -1,58 +1,6 @@
-// import { createContext, useEffect, useState } from "react"
-
-// export const CartContext = createContext()
-
-// const init = JSON.parse(localStorage.getItem('carrito')) || []
-// export const CartProvider = ( {children}) => {
-    
-//     const [cart, setCart] = useState([init])
-
-//     const agregarAlCarrito = (item) => {
-//         setCart([...cart, item])
-//     }
-//     const isInCart = (id) => {
-//         return cart.some((prod) => prod.id === id)
-//     }
-//     const totalCantidad = () => {
-//         return cart.reduce((acumulador, prod) => acumulador + prod.cantidad, 0)
-//     }
-
-//     const totalCompra = () => {
-//         return cart.reduce((acumulador, prod) => acumulador + (prod.precio*prod.cantidad), 0)
-//     }
-
-//     const vaciarCarrito = () => {
-//         setCart([])
-//     }
-
-//     const eliminarDelCarrito = (id) => {
-//         setCart(cart.filter((prod) => prod.id !== id))
-//     }
-//     useEffect(() => {
-//         localStorage.setItem('carrito',JSON.stringify(cart))
-//         //update de la sesión en firestore según el usuario...
-//         //id del documento el token del usuario
-//     }, [cart])
-//     return (
-
-//         <CartContext.Provider value = {{
-//             cart,
-//             agregarAlCarrito,
-//             isInCart,
-//             totalCantidad,
-//             totalCompra,
-//             vaciarCarrito,
-//             eliminarDelCarrito
-//         }}>
-//             {children} 
-//         </CartContext.Provider>
-//     )
-// }
-
 import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext()
-
 
 const init = JSON.parse(localStorage.getItem('carrito')) || []
 
@@ -96,7 +44,7 @@ export const CartProvider = ( {children} ) => {
             totalCantidad,
             totalCompra,
             vaciarCarrito,
-            eliminarDelCarrito
+            eliminarDelCarrito          
         }}>
             {children}
         </CartContext.Provider>

@@ -9,6 +9,7 @@ import { writeBatch, query, where }     from "firebase/firestore"
 import { Formik }                       from "formik"
 import * as Yup                         from 'yup';
 
+
 const schema = Yup.object().shape({
     nombre: Yup.string()
                 .required('Campo obligatorio!')
@@ -25,6 +26,7 @@ const schema = Yup.object().shape({
 export const Checkout = () => {
     const { cart, totalCompra, vaciarCarrito }  = useContext(CartContext)
     const [orderId, setOrderId]                 = useState(null)
+    const [sinStock, setSinStock]               = useState(0)
 
     const generarOrden = async (values) => {
         const orden = {
@@ -48,22 +50,24 @@ export const Checkout = () => {
                 batch.update(doc.ref, {
                     stock: doc.data().stock - item.cantidad
                 })
+                item.st = ""
             } else {
                 outOfStock.push(item)
+                item.st = "Atención: Sin Stock suficiente!!! quedan: "+doc.data().stock+" u. disponibles!"
             }
         })
         if (outOfStock.length === 0) {
             await batch.commit()
+            addDoc(ordenesRef, orden)
+                .then((doc) => {
+                    setOrderId(doc.id)
+                    vaciarCarrito()
+                })
         } else {
-            alert("Hay items Sin Stock!!")
+            setSinStock(outOfStock.length)
         }
-        addDoc(ordenesRef, orden)
-            .then((doc) => {
-                
-                setOrderId(doc.id)
-                vaciarCarrito()
-            })
     }
+
     if (orderId) {
         return (
             <div className="container my-5">
@@ -74,10 +78,21 @@ export const Checkout = () => {
             </div>
         )
     }
+
+    if (sinStock > 0) {
+        return (
+            <div className="container my-5">
+                <h2>Atención, hay Items sin Stock Disponible... Debe corregir!</h2>
+                <hr />
+                <Link className="btn btn-primary my-3" to="/cart">Al Carrito de Compras!!!</Link>
+            </div>
+        )
+    }
+
     // Para no ingresar al Checkout!
     if (cart.length === 0) {
         return <Navigate to="/" />
-    }
+    } 
 
     return (
         <div className="container my-5">

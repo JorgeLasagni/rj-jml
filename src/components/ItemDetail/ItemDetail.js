@@ -15,9 +15,10 @@ export const ItemDetail = ({item}) => {
     }
 
     const handleAgregar = () => {
+        const st = ""
         const newItem = {
             ...item,
-            cantidad
+            cantidad, st
         }
         agregarAlCarrito(newItem)
     }

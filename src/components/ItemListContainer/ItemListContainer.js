@@ -1,4 +1,3 @@
-import "../ItemListContainer/ItemListContainer.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState }  from "react"
 import { ItemList}              from "./../ItemList/ItemList"
