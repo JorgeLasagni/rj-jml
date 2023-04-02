@@ -7,11 +7,10 @@ import { Link }                 from "react-router-dom"
 
 
 export const LoginScreen = () => {
-    const { login, googleLogin } = useContext(LoginContext)
 
-    //const { user, tryLogin } = useContext(LoginContext)
-   
-   const [values, setValues] = useState({
+    const {user, login, googleLogin } = useContext(LoginContext)
+
+    const [values, setValues] = useState({
         email: "",
         password: ""
     })
@@ -26,6 +25,7 @@ export const LoginScreen = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         login(values)
+        console.log(values)
     }
 
     const [shown, setShown] = useState(false);
@@ -33,8 +33,10 @@ export const LoginScreen = () => {
 
     return (
         <div className = "login-screen">
+            
             <div className = "container login">
                 <img src={logods} alt="DoggyStyle"/>
+
                 <form onSubmit = {handleSubmit}>
                     <input 
                         value       =   {values.email}
@@ -61,16 +63,21 @@ export const LoginScreen = () => {
                         </button>
                     </div>
                     <div  className="container my-2 password-button">
+
                         <button className="btn btn-primary" tipe="submit">Ingresar</button>
+                        
                         <Link to="/register">Para Registrarse</Link>
+
                     </div>
+
+                    {(user.errorIngreso) && <p className="login-error">{(user.errorIngreso) && "ERROR DE INGRESO"}</p>}
+                
                 </form>
                 <button className='btn btn-outline-primary'
                         onClick={googleLogin}>Ingreso con Google
                 </button>
-
+                
             </div>
-
         </div>    
     )
 }

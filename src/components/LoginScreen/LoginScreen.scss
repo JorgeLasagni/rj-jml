@@ -6,6 +6,15 @@
     width: 100%;
     height: 100vh;
 
+    .login-error {
+        background-color: rgb(240, 115, 200);
+        //width: 1900px;
+        //display: flex;
+        justify-content: center;
+        align-items: center;
+        //width: 50%;
+        //height: 10vh;
+    }
     .login {
         display: flex;
         justify-content: center;

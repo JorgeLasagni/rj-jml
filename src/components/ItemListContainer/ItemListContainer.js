@@ -17,7 +17,7 @@ export const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        //1- referencia (sincrónico) qué basede datos quiero y cuál coleción de ella?
+        //1- referencia (sincrónico) qué base de datos quiero y cuál coleción de ella?
         const productosRef = collection(db, "productos")
         const q = categoriaId 
                     ? query(productosRef, where("categoria", "==", categoriaId), limit(100))

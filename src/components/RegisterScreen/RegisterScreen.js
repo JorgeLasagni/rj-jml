@@ -11,8 +11,11 @@ export const RegisterScreen = () => {
 
     const { user, register } = useContext(LoginContext)
     const [values, setValues] = useState({
-        email: "",
-        password: ""
+        email:      "",
+        password:   "",
+        nombre:     "",
+        direccion:  "",
+        telefono:   ""
     })
     //para sacar el error
     console.log(user)
@@ -34,8 +37,8 @@ export const RegisterScreen = () => {
     const switchShown = () => setShown(!shown);
 
     return (
-        <div className = "login-screen">
-            <div className = "container login">
+        <div className = "register-screen">
+            <div className = "container register">
                 <h5>Regístrese en DoggyStyle</h5>
                 <img src={logods} alt="DoggyStyle"/>
             
@@ -48,7 +51,7 @@ export const RegisterScreen = () => {
                         placeholder =   "Ingrese su Correo Electrónico"
                         name        =   "email"
                     />
-                    <div className="container my-2 password-button">
+                    <div className="container my-2 register-password-button">
                         <input 
                             value       =   {values.password}
                             type        =   {shown ? 'text' : "password"} 
@@ -63,6 +66,36 @@ export const RegisterScreen = () => {
                                 onClick     = {switchShown}>
                                 {shown ? < BsEyeSlash /> : < BsEye />}
                         </button>
+                    </div>
+                    <div>
+                        <input 
+                            value       =   {values.nombre}
+                            type        =   {"text"} 
+                            onChange    =   {handleInputChange}
+                            className   =   "form-control"
+                            placeholder =   "Ingrese su nombre y apellido"
+                            name        =   "nombre"
+                        />
+                    </div>
+                    <div>
+                    <input 
+                            value       =   {values.direccion}
+                            type        =   {"text"} 
+                            onChange    =   {handleInputChange}
+                            className   =   "form-control"
+                            placeholder =   "Ingrese su dirección"
+                            name        =   "direccion"
+                        />
+                    </div>
+                    <div>
+                    <input 
+                            value       =   {values.telefono}
+                            type        =   {"text"} 
+                            onChange    =   {handleInputChange}
+                            className   =   "form-control"
+                            placeholder =   "Ingrese su teléfono"
+                            name        =   "telefono"
+                        />
                     </div>
                     <div  className="container my-2 password-button">
                         <button className="btn btn-primary" tipe="submit">Nuevo!</button>

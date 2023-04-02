@@ -8,9 +8,10 @@ export const LoginContext = createContext()
 
 export const LoginProvider = ({children}) => {
     const [user, setUser] = useState({
-        email: null,
+        email:  null,
         logged: false,
-        uid: null
+        uid:    null,
+        errorIngreso: false
     })
 
     const googleLogin = () => {
@@ -23,9 +24,8 @@ export const LoginProvider = ({children}) => {
     const login = (values) => {
         signInWithEmailAndPassword(auth, values.email, values.password)
             .catch((err) => {
-                console.log(err)
-                alert("Error de Ingreso!!! -> "+err)
-                })
+                setUser({errorIngreso: true})
+                })     
     }
 
     const register = (values) => {
@@ -37,9 +37,10 @@ export const LoginProvider = ({children}) => {
         signOut(auth)
             .then(() => {
                 setUser({
-                    email: null,
+                    email:  null,
                     logged: false,
-                    uid: null
+                    uid:    null,
+                    errorIngreso: false
                 })
             })
     }
@@ -47,11 +48,11 @@ export const LoginProvider = ({children}) => {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                //console.log(user)
                 setUser({
-                    email: user.email,
+                    email:  user.email,
                     logged: true,
-                    uid: user.uid
+                    uid:    user.uid,
+                    errorIngreso: false
                 })
             } else {
                 logout()
