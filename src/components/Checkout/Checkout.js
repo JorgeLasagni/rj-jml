@@ -31,10 +31,10 @@ export const Checkout = () => {
     const generarOrden = async (values) => {
         const orden = {
             cliente: values,
-            items: cart.map((prod) => ({id: prod.id, 
-                                        precio: prod.precio, 
-                                        cantidad: prod.cantidad, 
-                                        nombre: prod.nombre})),
+            items: cart.map((prod) => ({id:         prod.id, 
+                                        precio:     prod.precio, 
+                                        cantidad:   prod.cantidad, 
+                                        nombre:     prod.nombre})),
             total: totalCompra(),
             fecha: new Date()
         }

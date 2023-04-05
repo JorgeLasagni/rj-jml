@@ -27,7 +27,7 @@ export const LoginProvider = ({children}) => {
                 setUser({errorIngreso: true})
                 })     
     }
-
+    
     const register = (values) => {
         createUserWithEmailAndPassword(auth, values.email, values.password)
             .catch((err) => console.log(err.message))

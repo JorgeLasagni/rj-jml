@@ -66,7 +66,7 @@ export const LoginScreen = () => {
 
                         <button className="btn btn-primary" tipe="submit">Ingresar</button>
                         
-                        <Link to="/register">Para Registrarse</Link>
+                        <Link to="/register">Registrarse</Link>
 
                     </div>
 

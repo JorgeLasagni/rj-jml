@@ -7,7 +7,7 @@
   height: 100vh;
 }
 .login-screen .login-error {
-  background-color: rgb(240, 115, 200);
+  background-color: rgb(228, 17, 95);
   justify-content: center;
   align-items: center;
 }
