@@ -58,7 +58,7 @@ export const RegisterScreen = () => {
             return (
                 <div className="container my-5">
                     <h2>USUARIO no puede registrarse, ya existe! como {usuarioId}</h2>
-                    <Link className="btn btn-primary my-3" to="/*">Vuelva a intentarlo!</Link>
+                    <Link className="btn btn-danger my-3" to="/*">Vuelva a intentarlo!</Link>
                 </div>
             )
         } 

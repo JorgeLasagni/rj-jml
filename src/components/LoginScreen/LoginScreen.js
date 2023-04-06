@@ -20,7 +20,6 @@ const schema = Yup.object().shape({
 export const LoginScreen = () => {
 
     const {user, login, googleLogin } = useContext(LoginContext)
-
     const [values, setValues] = useState({
         email: "",
         password: ""
@@ -39,6 +38,16 @@ export const LoginScreen = () => {
     const [shown, setShown] = useState(false);
     const switchShown = () => setShown(!shown);
 
+    if (user.errorIngreso) {
+        user.errorIngreso= false
+        return (
+            <div className="container my-5">
+                <h2>USUARIO no puede Ingresar, NO existe o es ERRÓNEA la contraseña!</h2>
+                <Link className="btn btn-danger my-3" to="/*">Vuelva a intentarlo!</Link>
+            </div>
+        )
+    } 
+
     return (
         <div className = "login-screen"> 
             <div className = "container login">
@@ -54,44 +63,43 @@ export const LoginScreen = () => {
                 >
                 {({values, errors, handleChange, handleSubmit, isSubmitting}) => (
                     <div>
-                    <form onSubmit={handleSubmit}>
-                        
-                        <input required
-                            onChange={handleChange}
-                            value={values.email}
-                            type='email'
-                            placeholder='E-Mail'
-                            className="form-control my-2"
-                            name="email"
-                        />
-                        {errors.email && <p className="alert alert-danger">{errors.email}</p>}
-                        <div className="container my-2 login-password-button">
+                        <form onSubmit={handleSubmit}>
+                            
                             <input required
-                                onChange    = {handleChange}
-                                value       = {values.password}
-                                type        = {shown ? 'text' : "password"}
-                                placeholder = 'Ingrese su Contraseña'
-                                className   = "form-control my-2"
-                                name        = "password"
+                                onChange={handleChange}
+                                value={values.email}
+                                type='email'
+                                placeholder='E-Mail'
+                                className="form-control my-2"
+                                name="email"
                             />
-                            <button className   = "btn btn-primary" 
-                                    type        ="button"
-                                    onClick     = {switchShown}>
-                                    {shown ? < BsEyeSlash /> : < BsEye />}
-                            </button>
-                        </div> 
-                        {errors.password && <p className="alert alert-danger">{errors.password}</p>} 
-                        
-                        <button 
-                            className="btn btn-primary" 
-                            type="submit"
-                            disabled={isSubmitting}>
-                                Ingresar
-                        </button>
-                        
-                        <Link to="/register">Registrarse</Link>
-                        {(user.errorIngreso) && <p className="login-error">{(user.errorIngreso) && "ERROR DE INGRESO"}</p>}
-                    </form>
+                            {errors.email && <p className="alert alert-danger">{errors.email}</p>}
+                            <div className="container my-2 login-password-button">
+                                <input required
+                                    onChange    = {handleChange}
+                                    value       = {values.password}
+                                    type        = {shown ? 'text' : "password"}
+                                    placeholder = 'Ingrese su Contraseña'
+                                    className   = "form-control my-2"
+                                    name        = "password"
+                                />
+                                <button className   = "btn btn-primary" 
+                                        type        ="button"
+                                        onClick     = {switchShown}>
+                                        {shown ? < BsEyeSlash /> : < BsEye />}
+                                </button>
+                            </div> 
+
+                            {errors.password && <p className="alert alert-danger">{errors.password}</p>} 
+                            
+                            <button 
+                                className="btn btn-primary" 
+                                type="submit"
+                                disabled={isSubmitting}>
+                                    Ingresar
+                            </button>                      
+                            <Link to="/register">Registrarse</Link>
+                        </form>
                     </div>
                 )}
                 </Formik>
