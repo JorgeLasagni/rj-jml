@@ -5,7 +5,18 @@ import { BsEyeSlash, BsEye }    from 'react-icons/bs'
 import logods                   from "./logods.jpg"
 import { Link }                 from "react-router-dom"
 
+import { Formik }               from "formik"
+import * as Yup                 from 'yup';
 
+const schema = Yup.object().shape({
+    password: Yup.string()
+                .required('Obligatorio!')
+                .min(3,"Mínimo 3 caracteres!")
+                .max(31, "Máximo de 30 caracteres"),
+    email:      Yup.string()
+                .required('Obligatorio!')
+                .email("EMail inválido!")
+    })
 export const LoginScreen = () => {
 
     const {user, login, googleLogin } = useContext(LoginContext)
@@ -14,70 +25,80 @@ export const LoginScreen = () => {
         email: "",
         password: ""
     })
-    
-    const handleInputChange = (e) => {
+
+    const cargaCambios = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const ingreso = (values) => {
         login(values)
-        console.log(values)
     }
-
     const [shown, setShown] = useState(false);
     const switchShown = () => setShown(!shown);
 
     return (
-        <div className = "login-screen">
-            
+        <div className = "login-screen"> 
             <div className = "container login">
                 <img src={logods} alt="DoggyStyle"/>
-
-                <form onSubmit = {handleSubmit}>
-                    <input 
-                        value       =   {values.email}
-                        type        =   {"text"} 
-                        onChange    =   {handleInputChange}
-                        className   =   "form-control"
-                        placeholder =   "Ingrese su Correo Electrónico"
-                        name        =   "email"
-                    />
-                    <div className="container my-2 password-button">
-                        <input 
-                            value       =   {values.password}
-                            type        =   {shown ? 'text' : "password"} 
-                            onChange    =   {handleInputChange}
-                            className   =   "form-control my-3"
-                            placeholder =   "Ingrese Contraseña"
-                            name        =   "password"
-                        />
+                <Formik
+                    initialValues={{
+                        password:   '',
+                        email:      ''
+                    }}
+                    validationSchema    = { schema }
+                    onSubmit            = { ingreso }
+                    onChange            = { cargaCambios }
+                >
+                {({values, errors, handleChange, handleSubmit, isSubmitting}) => (
+                    <div>
+                    <form onSubmit={handleSubmit}>
                         
-                        <button className   = "btn btn-primary" 
-                                type        ="button"
-                                onClick     = {switchShown}>
-                                {shown ? < BsEyeSlash /> : < BsEye />}
+                        <input required
+                            onChange={handleChange}
+                            value={values.email}
+                            type='email'
+                            placeholder='E-Mail'
+                            className="form-control my-2"
+                            name="email"
+                        />
+                        {errors.email && <p className="alert alert-danger">{errors.email}</p>}
+                        <div className="container my-2 login-password-button">
+                            <input required
+                                onChange    = {handleChange}
+                                value       = {values.password}
+                                type        = {shown ? 'text' : "password"}
+                                placeholder = 'Ingrese su Contraseña'
+                                className   = "form-control my-2"
+                                name        = "password"
+                            />
+                            <button className   = "btn btn-primary" 
+                                    type        ="button"
+                                    onClick     = {switchShown}>
+                                    {shown ? < BsEyeSlash /> : < BsEye />}
+                            </button>
+                        </div> 
+                        {errors.password && <p className="alert alert-danger">{errors.password}</p>} 
+                        
+                        <button 
+                            className="btn btn-primary" 
+                            type="submit"
+                            disabled={isSubmitting}>
+                                Ingresar
                         </button>
-                    </div>
-                    <div  className="container my-2 password-button">
-
-                        <button className="btn btn-primary" tipe="submit">Ingresar</button>
                         
                         <Link to="/register">Registrarse</Link>
-
+                        {(user.errorIngreso) && <p className="login-error">{(user.errorIngreso) && "ERROR DE INGRESO"}</p>}
+                    </form>
                     </div>
-
-                    {(user.errorIngreso) && <p className="login-error">{(user.errorIngreso) && "ERROR DE INGRESO"}</p>}
-                
-                </form>
+                )}
+                </Formik>
                 <button className='btn btn-outline-primary'
-                        onClick={googleLogin}>Ingreso con Google
+                    onClick={googleLogin}>Ingreso con Google
                 </button>
-                
             </div>
-        </div>    
+        </div>   
     )
 }

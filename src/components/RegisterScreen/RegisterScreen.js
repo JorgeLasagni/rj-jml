@@ -27,8 +27,6 @@ export const RegisterScreen = () => {
 
     const [usuarioId, setUsuarioId] = useState(null)
     const usuariosRef               = collection(db, 'usuarios')
-    //const { user, register } = useContext(LoginContext)
-
     const { register }              = useContext(LoginContext)
     
     const [values, setValues] = useState({
@@ -47,16 +45,7 @@ export const RegisterScreen = () => {
             [e.target.name]: e.target.value
         })
     }
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     register(values)
-    //     generarUsuario(values)
-    // }
-    // const registracion = async (e) => {
-    //     e.preventDefault()
-    //     register(values)
-    //     generarUsuario(values)
-    // }
+    
     const registracion = async (values) => {
         register(values)
         generarUsuario(values)
@@ -65,19 +54,11 @@ export const RegisterScreen = () => {
     const [shown, setShown] = useState(false);
     const switchShown = () => setShown(!shown);
 
-    // if (usuarioId) {
-    //     return (
-    //         <div className="container my-5">
-    //             <h2>USUARIO registrado exitosamente</h2>
-    //             <hr />
-    //             <p>Identificación USUARIO: {usuarioId} </p>
-    //             <Link className="btn btn-primary my-3" to="/*">Al inicio</Link>
-    //         </div>
-    //     )
-    // } 
     if (usuarioId) {
             return (
-                <div>
+                <div className="container my-5">
+                    <h2>USUARIO no puede registrarse, ya existe! como {usuarioId}</h2>
+                    <Link className="btn btn-primary my-3" to="/*">Vuelva a intentarlo!</Link>
                 </div>
             )
         } 
@@ -87,18 +68,16 @@ export const RegisterScreen = () => {
             <div className = "container register">
                 <img src={logods} alt="DoggyStyle"/>
                 <Formik
-                initialValues={{
-                    password:     '',
-                    email:      ''
-                }}
-                validationSchema    = { schema }
-                onSubmit            = { registracion }
-                onChange            = { cargaCambios }
-                //onChange            = {handleInputChange}
-            >
+                    initialValues={{
+                        password:     '',
+                        email:      ''
+                    }}
+                    validationSchema    = { schema }
+                    onSubmit            = { registracion }
+                    onChange            = { cargaCambios }
+                >
                 {({values, errors, handleChange, handleSubmit, isSubmitting}) => (
                     <form onSubmit={handleSubmit}>
-                        
                         <input required
                             onChange={handleChange}
                             value={values.email}
@@ -122,52 +101,18 @@ export const RegisterScreen = () => {
                                     onClick     = {switchShown}>
                                     {shown ? < BsEyeSlash /> : < BsEye />}
                             </button>
-                            </div> 
-                            {errors.password && <p className="alert alert-danger">{errors.password}</p>} 
-                                              
+                        </div> 
+                        {errors.password && <p className="alert alert-danger">{errors.password}</p>} 
                         <button 
                             className="btn btn-primary" 
                             type="submit"
                             disabled={isSubmitting}>
                                 Registrarse
                         </button>
-                        
                         <Link to="/login">Ingresar</Link>
-                    
                     </form>
                 )}
-            </Formik>
-                {/* <form onSubmit = {handleSubmit}>
-                    <input 
-                        value       =   {values.email}
-                        type        =   {"text"} 
-                        onChange    =   {handleInputChange}
-                        className   =   "form-control"
-                        placeholder =   "Ingrese su Correo Electrónico"
-                        name        =   "email"
-                    />
-                    <div className="container my-2 register-password-button">
-                        <input 
-                            value       =   {values.password}
-                            type        =   {shown ? 'text' : "password"} 
-                            onChange    =   {handleInputChange}
-                            className   =   "form-control my-3"
-                            placeholder =   "Ingrese Contraseña"
-                            name        =   "password"
-                        />
-                        
-                        <button className   = "btn btn-primary" 
-                                type        ="button"
-                                onClick     = {switchShown}>
-                                {shown ? < BsEyeSlash /> : < BsEye />}
-                        </button>
-                    </div>
-                    
-                    <div  className="container my-2 password-button">
-                        <button className="btn btn-primary" tipe="submit">Registrar</button>
-                        <Link to="/login">Ingresar</Link>
-                    </div>
-                </form> */}
+                </Formik>           
             </div>
         </div>    
     )

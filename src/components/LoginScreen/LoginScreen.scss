@@ -8,23 +8,19 @@
     
     .login-error {
         background-color: rgb(228, 17, 95);
-        //width: 1900px;
-        //display: flex;
         justify-content: center;
         align-items: center;
-        //width: 50%;
-        //height: 10vh;
     }
     .login {
-        display: flex;
+        //display: flex;
         justify-content: center;
-        align-items: center;    
+        align-items: center; 
         width: 500px;
         padding: 26px;
         border-radius: 10px;
         background-color: white;
     }
-    .password-button {
+    .login-password-button {
         display: flex;
         justify-content: center;
         align-items: center;
