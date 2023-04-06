@@ -1,5 +1,5 @@
 import { Cart }                         from "./../components/Cart/Cart";
-import { Contacto }                     from "./../components/Contacto/Contacto";
+import { Ordenes }                      from "./../components/Ordenes/Ordenes";
 import { Checkout }                     from "./../components/Checkout/Checkout";
 import { ItemDetailContainer }          from "./../components/ItemDetailContainer/ItemDetailContainer";
 import { ItemListContainer }            from "./../components/ItemListContainer/ItemListContainer";
@@ -24,7 +24,7 @@ export const PrivateRoutes = () => {
             <Route path="/checkout"               element= { <Checkout            /> } />
             <Route path="/Nosotros"               element= { <Nosotros            /> } />
             <Route path="/Noticias"               element= { <Noticias            /> } />
-            <Route path="/Contacto"               element= { <Contacto            /> } />
+            <Route path="/Ordenes"                element= { <Ordenes             /> } />
             <Route path="*"                       element= { <Navigate to="/"     /> } /> 
         </Routes>
     </>

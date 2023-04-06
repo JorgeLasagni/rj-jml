@@ -8,7 +8,6 @@ import { useContext, useMemo }  from "react"
 
 export const Navbar = () => {
 
-  //const { user, logout } = useContext(LoginContex)
   const { user, logout} = useContext(LoginContext)
   const fechaIngreso = useMemo(() => new Date().toLocaleString(), [])
 
@@ -30,16 +29,15 @@ export const Navbar = () => {
           </nav>      
         </div>
         <div className="login-state container">
-          {/* <p>Bienvenido: {user.usuario} (Ingreso: {fechaIngreso})</p> */}
           <p>Bienvenido: {user.email} (Ingreso: {fechaIngreso})</p>
           <button className="btn btn-danger sm" onClick={logout}>Logout</button>
         </div>
         <hr />
         <div className="header_container justify-content-center">
           <nav className="navbar">
-            <Link to="/Noticias" className="navbar_link"> Noticias del U$S </Link>
-            <Link to="/Contacto" className="navbar_link"> Contacto </Link>
-            <Link to="/Nosotros" className="navbar_link"> 
+            <Link to="/Noticias"  className="navbar_link"> Noticias del U$S </Link>
+            <Link to="/Ordenes"   className="navbar_link"> Órdenes </Link>
+            <Link to="/Nosotros"  className="navbar_link"> 
               <Alert key="primary" variant="primary">
                 <b>DOGGY STYLE</b> quiere ser el Sistema Integral para el bienestar de tu MASCOTA. (ClickMe, please!)
               </Alert>  
@@ -49,6 +47,3 @@ export const Navbar = () => {
     </header>   
   )
 }
-
-
-

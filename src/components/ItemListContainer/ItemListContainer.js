@@ -17,14 +17,11 @@ export const ItemListContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        //1- referencia (sincrónico) qué base de datos quiero y cuál coleción de ella?
         const productosRef = collection(db, "productos")
         const q = categoriaId 
                     ? query(productosRef, where("categoria", "==", categoriaId), limit(100))
                     //? query(productosRef, where("categoria", "==", categoriaId), where("precio", "<", 5000))
                     : productosRef
-
-        //2- pedir referencia (asincrónico) cuáles documentos?
         getDocs(q)
             .then((res) => {
                 const docs = res.docs.map((doc) => {

@@ -1,7 +1,6 @@
 import { useEffect, useState }  from "react"
 import {Spinner}                from "reactstrap"
 
-
 export const Cotizacion = () => {
 
     const apiDolar = "https://criptoya.com/api/dolar";
@@ -21,9 +20,7 @@ export const Cotizacion = () => {
     },[])
 
     //{"oficial":215.5,"solidario":355.575,"blue":394,"ccb":393.61,"mep":394.07,"ccl":403.36,"mepgd30":394.07,"cclgd30":400.98,"blue_bid":390,"qatar":431,"time":1680278480}
-
-    //const {blue, ccb, ccl, mep, oficial, solidario, time} = (cotizaciones)
-
+    
     const {oficial, solidario, blue, ccb, mep, ccl, mepgd30, cclgd30, blue_bid, qatar, time} = (cotizaciones)
     const dateTime= (new Date((time * 1000))).toLocaleString()  
 
