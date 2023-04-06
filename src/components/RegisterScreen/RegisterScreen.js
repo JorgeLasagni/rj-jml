@@ -24,11 +24,13 @@ const schema = Yup.object().shape({
     })
 
 export const RegisterScreen = () => {
-//-------------------------------------------------------------------------
-const [usuarioId, setUsuarioId] = useState(null)
-const usuariosRef               = collection(db, 'usuarios')
-//-------------------------------------------------------------------------
-    const { user, register } = useContext(LoginContext)
+
+    const [usuarioId, setUsuarioId] = useState(null)
+    const usuariosRef               = collection(db, 'usuarios')
+    //const { user, register } = useContext(LoginContext)
+
+    const { register }              = useContext(LoginContext)
+    
     const [values, setValues] = useState({
         email:      "",
         password:   ""
@@ -73,6 +75,12 @@ const usuariosRef               = collection(db, 'usuarios')
     //         </div>
     //     )
     // } 
+    if (usuarioId) {
+            return (
+                <div>
+                </div>
+            )
+        } 
 
     return (
         <div className = "register-screen">
