@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState }  from "react"
-import { OrdenList}              from "./../OrdenList/OrdenList"
+import { OrdenList}             from "./../OrdenList/OrdenList"
 import { collection, getDocs }  from "firebase/firestore"
 import { db }                   from "../../firebase/config"
 import {Spinner}                from "reactstrap"
