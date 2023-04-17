@@ -1,15 +1,25 @@
 import "./Navbar.scss"
-import Alert                    from 'react-bootstrap/Alert'
-import { Link }                 from "react-router-dom"
-import { LoginContext }         from "../../context/LoginContext"
-import logods                   from "./logods.jpg"
-import { CartWidget }           from "../CartWidget/CartWidget"
-import { useContext, useMemo }  from "react"
+import Alert                          from 'react-bootstrap/Alert'
+import { Link }                       from "react-router-dom"
+import { LoginContext }               from "../../context/LoginContext"
+import logods                         from "./logods.jpg"
+import { CartWidget }                 from "../CartWidget/CartWidget"
+import { useContext, useMemo }        from "react"
+import React, { useState, useEffect } from 'react';
 
 export const Navbar = () => {
 
   const { user, logout} = useContext(LoginContext)
-  const fechaIngreso = useMemo(() => new Date().toLocaleString(), [])
+  const fechaIngreso    = useMemo(() => new Date().toLocaleString(), [])
+  const [time, setTime] = useState(new Date())
+  useEffect(() => {
+    const intervalID = setInterval(() => {
+        setTime(new Date())
+    }, 1000)
+    return () => {
+        clearInterval(intervalID)
+    }
+  }, []) 
 
   return (
     <header className="header">
@@ -29,7 +39,7 @@ export const Navbar = () => {
           </nav>      
         </div>
         <div className="login-state container">
-          <p>Bienvenido: {user.email} (Ingreso: {fechaIngreso})</p>
+          <p>Bienvenido: {user.email} (Ingreso: {fechaIngreso}) <b>{time.toLocaleTimeString()}</b></p>
           <button className="btn btn-danger sm" onClick={logout}>Logout</button>
         </div>
         <hr />
